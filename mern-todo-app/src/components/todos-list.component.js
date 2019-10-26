@@ -4,6 +4,7 @@ import axios from 'axios';
 
 const Todo = props => (
     <tr>
+      
           <td className={props.todo.todo_completed ? 'completed' : ''}>{props.todo.todo_description}</td>
         <td className={props.todo.todo_completed ? 'completed' : ''}>{props.todo.todo_responsible}</td>
         <td  className={props.todo.todo_completed ? 'completed' : ''}>{props.todo.todo_priority}</td>
@@ -35,7 +36,7 @@ export default class TodosList extends Component {
       componentDidUpdate(){
   axios.get('http://localhost:4000/todos/')
       .then(response => {
-        
+
           this.setState({ todos: response.data });
       })
       .catch(function (error){
